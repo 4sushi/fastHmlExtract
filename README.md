@@ -13,7 +13,7 @@ Python 2 and Python 3
 
 ### Function extract
 
-```
+```python
 html = """
 	<!DOCTYPE html>
 	<html>
@@ -30,7 +30,9 @@ html_by_tags = fastHtmlExtract.extract(html, ['p', 'h1'])
 print(html_by_tags)
 ```
 
-```
+Output :
+
+```text
 {
 	'p': [
 		'<p>Paragraph 1<br/></p>', 
@@ -44,7 +46,7 @@ print(html_by_tags)
 
 ### Function count
 
-```
+```python
 html = """
 	<!DOCTYPE html>
 	<html>
@@ -61,7 +63,9 @@ count_by_tags = fastHtmlExtract.count(html, ['p', 'h1'])
 print(count_by_tags)
 ```
 
-```
+Output :
+
+```text
 {
 	'p': 2, 
 	'h1': 1
@@ -70,7 +74,7 @@ print(count_by_tags)
 
 ### Function get_text
 
-```
+```python
 html = """
 	<!DOCTYPE html>
 	<html>
@@ -87,13 +91,15 @@ text = fastHtmlExtract.get_text(html)
 print(text)
 ```
 
-```
+Output :
+
+```text
 Title 1 Paragraph 1 Paragraph 2 
 ```
 
 ### Combined functions
 
-```
+```python
 html = """
 	<!DOCTYPE html>
 	<html>
@@ -113,7 +119,9 @@ for p in paragraphs:
 	print(text)
 ```
 
-```
+Output :
+
+```text
 Paragraph 1 
 Paragraph 2 
 ```
@@ -121,7 +129,7 @@ Paragraph 2
 ## Speed FastHtmlExtract / Beautiful Soup
 
 
-```
+```python
 import fastHtmlExtract
 import urllib
 import re
@@ -153,15 +161,14 @@ if __name__ == "__main__":
     titles_1 = fast_extract_titles(html)
     titles_2 = beautiful_soup_extract_titles(html)
     print(titles_1)
-	# ['List of j\xc5\x8dy\xc5\x8d kanji', 'Contents', 'List of characters [ edit ]', 'See also [ edit ]', 'Notes [ edit ]', 'External links [ edit ]', 'Navigation menu', 'Personal tools', 'Namespaces', 'Variants', 'Views', 'More', 'Search', 'Navigation', 'Interaction', 'Tools', 'Print/export', 'In other projects', 'Languages']
+    # ['List of j\xc5\x8dy\xc5\x8d kanji', 'Contents', 'List of characters [ edit ]', 'See also [ edit ]', 'Notes [ edit ]', 'External links [ edit ]', 'Navigation menu', 'Personal tools', 'Namespaces', 'Variants', 'Views', 'More', 'Search', 'Navigation', 'Interaction', 'Tools', 'Print/export', 'In other projects', 'Languages']
     print(titles_2)
-	# ['List of j\xc5\x8dy\xc5\x8d kanji', 'Contents', 'List of characters [ edit ]', 'See also [ edit ]', 'Notes [ edit ]', 'External links [ edit ]', 'Navigation menu', 'Personal tools', 'Namespaces', '\n Variants \n', 'Views', 'More', '\n Search \n', 'Navigation', 'Interaction', 'Tools', 'Print/export', 'In other projects', 'Languages']
+    # ['List of j\xc5\x8dy\xc5\x8d kanji', 'Contents', 'List of characters [ edit ]', 'See also [ edit ]', 'Notes [ edit ]', 'External links [ edit ]', 'Navigation menu', 'Personal tools', 'Namespaces', '\n Variants \n', 'Views', 'More', '\n Search \n', 'Navigation', 'Interaction', 'Tools', 'Print/export', 'In other projects', 'Languages']
     # Compare performances
     print(timeit.timeit('fast_extract_titles(html)', number=1000, setup="from __main__ import fast_extract_titles, html"))
-	# 2.17549295306
-    print(timeit.timeit('beautiful_soup_extract_titles(html)', number=1000,
-                setup="from __main__ import beautiful_soup_extract_titles, html"))
-	# 23.444286399
+    # 2.17549295306
+    print(timeit.timeit('beautiful_soup_extract_titles(html)', number=1000, setup="from __main__ import beautiful_soup_extract_titles, html"))
+    # 23.444286399
 ```
 
 In this case, for a simple extraction, fast_extract_titles is 10 times faster.
