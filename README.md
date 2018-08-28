@@ -28,15 +28,18 @@ html = """
 	
 html_by_tags = fastHtmlExtract.extract(html, ['p', 'h1'])
 print(html_by_tags)
-# {
-#	'p': [
-#		'<p>Paragraph 1<br/></p>', 
-#		'<p>Paragraph <b>2</b></p>'
-#	], 
-#	'h1': [
-#		'<h1>Title 1</h1>'
-#	]
-# }
+```
+
+```
+{
+	'p': [
+		'<p>Paragraph 1<br/></p>', 
+		'<p>Paragraph <b>2</b></p>'
+	], 
+	'h1': [
+		'<h1>Title 1</h1>'
+	]
+}
 ```
 
 ### Function count
@@ -56,10 +59,13 @@ html = """
 	
 count_by_tags = fastHtmlExtract.count(html, ['p', 'h1'])
 print(count_by_tags)
-# {
-#	'p': 2, 
-#	'h1': 1
-# }
+```
+
+```
+{
+	'p': 2, 
+	'h1': 1
+}
 ```
 
 ### Function get_text
@@ -79,7 +85,10 @@ html = """
 	
 text = fastHtmlExtract.get_text(html)
 print(text)
-# Title 1 Paragraph 1 Paragraph 2 
+```
+
+```
+Title 1 Paragraph 1 Paragraph 2 
 ```
 
 ### Combined functions
@@ -102,8 +111,11 @@ paragraphs = html_elements['p']
 for p in paragraphs:
 	text = fastHtmlExtract.get_text(p)
 	print(text)
-# Paragraph 1 
-# Paragraph 2 
+```
+
+```
+Paragraph 1 
+Paragraph 2 
 ```
 
 ## Speed FastHtmlExtract / Beautiful Soup
