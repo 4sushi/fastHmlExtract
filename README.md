@@ -15,17 +15,17 @@ Python 2 and Python 3
 
 ```python
 html = """
-	<!DOCTYPE html>
-	<html>
-	<body>
-	<h1>Title 1</h1>
-	<p>Paragraph 1<br/></p>
-	<p>Paragraph <b>2</b></p>
-	<!-- <p>Paragraph in comment</p> -->
-	</body>
-	</html> 
-	"""
-	
+    <!DOCTYPE html>
+    <html>
+    <body>
+    <h1>Title 1</h1>
+    <p>Paragraph 1<br/></p>
+    <p>Paragraph <b>2</b></p>
+    <!-- <p>Paragraph in comment</p> -->
+    </body>
+    </html> 
+    """
+    
 html_by_tags = fastHtmlExtract.extract(html, ['p', 'h1'])
 print(html_by_tags)
 ```
@@ -34,13 +34,13 @@ Output :
 
 ```text
 {
-	'p': [
-		'<p>Paragraph 1<br/></p>', 
-		'<p>Paragraph <b>2</b></p>'
-	], 
-	'h1': [
-		'<h1>Title 1</h1>'
-	]
+    'p': [
+        '<p>Paragraph 1<br/></p>', 
+        '<p>Paragraph <b>2</b></p>'
+    ], 
+    'h1': [
+        '<h1>Title 1</h1>'
+    ]
 }
 ```
 
@@ -48,17 +48,17 @@ Output :
 
 ```python
 html = """
-	<!DOCTYPE html>
-	<html>
-	<body>
-	<h1>Title 1</h1>
-	<p>Paragraph 1<br/></p>
-	<p>Paragraph <b>2</b></p>
-	<!-- <p>Paragraph in comment</p> -->
-	</body>
-	</html> 
-	"""
-	
+    <!DOCTYPE html>
+    <html>
+    <body>
+    <h1>Title 1</h1>
+    <p>Paragraph 1<br/></p>
+    <p>Paragraph <b>2</b></p>
+    <!-- <p>Paragraph in comment</p> -->
+    </body>
+    </html> 
+    """
+    
 count_by_tags = fastHtmlExtract.count(html, ['p', 'h1'])
 print(count_by_tags)
 ```
@@ -67,8 +67,8 @@ Output :
 
 ```text
 {
-	'p': 2, 
-	'h1': 1
+    'p': 2, 
+    'h1': 1
 }
 ```
 
@@ -76,17 +76,17 @@ Output :
 
 ```python
 html = """
-	<!DOCTYPE html>
-	<html>
-	<body>
-	<h1>Title 1</h1>
-	<p>Paragraph 1<br/></p>
-	<p>Paragraph <b>2</b></p>
-	<!-- <p>Paragraph in comment</p> -->
-	</body>
-	</html> 
-	"""
-	
+    <!DOCTYPE html>
+    <html>
+    <body>
+    <h1>Title 1</h1>
+    <p>Paragraph 1<br/></p>
+    <p>Paragraph <b>2</b></p>
+    <!-- <p>Paragraph in comment</p> -->
+    </body>
+    </html> 
+    """
+    
 text = fastHtmlExtract.get_text(html)
 print(text)
 ```
@@ -101,22 +101,22 @@ Title 1 Paragraph 1 Paragraph 2
 
 ```python
 html = """
-	<!DOCTYPE html>
-	<html>
-	<body>
-	<h1>Title 1</h1>
-	<p>Paragraph 1<br/></p>
-	<p>Paragraph <b>2</b></p>
-	<!-- <p>Paragraph in comment</p> -->
-	</body>
-	</html> 
-	"""
+    <!DOCTYPE html>
+    <html>
+    <body>
+    <h1>Title 1</h1>
+    <p>Paragraph 1<br/></p>
+    <p>Paragraph <b>2</b></p>
+    <!-- <p>Paragraph in comment</p> -->
+    </body>
+    </html> 
+    """
 
 html_elements = fastHtmlExtract.extract(html, ['p'])
 paragraphs = html_elements['p']
 for p in paragraphs:
-	text = fastHtmlExtract.get_text(p)
-	print(text)
+    text = fastHtmlExtract.get_text(p)
+    print(text)
 ```
 
 Output :
